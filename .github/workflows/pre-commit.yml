@@ -1,0 +1,16 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.9.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+    - uses: pre-commit/action@v2.0.3

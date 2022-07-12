@@ -1,0 +1,19 @@
+# Poetry
+.venv
+
+# github codespaces
+.devcontainer/
+
+# Screenshots
+screenshots/
+/.idea/
+/.mypy_cache/
+/.python-version
+
+*.pyc
+geckodriver.log
+.vscode/settings.json
+/allure-results/
+
+.DS_Store
+.AppleDouble
