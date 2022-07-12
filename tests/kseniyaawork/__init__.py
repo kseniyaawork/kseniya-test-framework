@@ -1,2 +1,0 @@
-def pages():
-    return None
