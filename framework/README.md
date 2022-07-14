@@ -17,7 +17,7 @@ poetry run python -m pytest framework/tests/
 
 ### Via Docker
 
-To run the tests inside a container using the image [built here](../../README.md#docker):
+To run the tests inside a container using the image [built here](../README.md#docker):
 
 ```shell
 docker run aut:local /bin/bash -c "poetry run python -m pytest framework/tests/"
