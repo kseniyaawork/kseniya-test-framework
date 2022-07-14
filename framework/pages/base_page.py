@@ -1,8 +1,5 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from tests.kseniyaawork.framework.tests import conftest
 
 
 class BasePage:
@@ -15,12 +12,15 @@ class BasePage:
         self.driver = driver
 
     def do_click(self, by_locator):
-        self.driver.implicitly_wait(10)
-        by_locator.click()
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+
+        # self.driver.implicitly_wait(10)
+        # by_locator.click()
 
     def do_send_keys(self, by_locator, text):
-        self.driver.implicitly_wait(10)
-        by_locator.send_keys(text)
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
+        # self.driver.implicitly_wait(10)
+        # by_locator.send_keys(text)
 
     def get_element_keys(self, by_locator):
         element = by_locator

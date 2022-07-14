@@ -1,17 +1,21 @@
-from tests.kseniyaawork.framework.config.config import TestData
-from tests.kseniyaawork.framework.pages.base_page import BasePage
+from framework.pages.login_page_locators import LoginPageLocators
+from framework.config.config import TestData
+from framework.pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from tests.kseniyaawork.framework.pages.login_page_locators import LoginPageLocators
+# from tests.kseniyaawork.framework.pages.login_page_locators import LoginPageLocators
 from selenium import webdriver
 
 
 class LoginPage(BasePage):
+
+
     """constructor of the page class"""
 
     def __init__(self, driver):
-        super().__init__(driver)
         self.driver = driver
-        self.driver.get(TestData.BASE_URL + "http://automationpractice.com/index.php?controller=authentication&back=my-account")
+        self.driver.get(TestData.BASE_URL + '?controller=authentication&back=my-account')
+        super().__init__(driver)
+
 
     """Page actions for Login Page"""
 
@@ -25,6 +29,7 @@ class LoginPage(BasePage):
     def is_forgot_your_pass_link_exist(self):
         return self.is_visible(LoginPageLocators.FORGOT_YOUR_PASS)
 
+
     """this is used to login to app"""
 
     def do_login(self, username, password):
@@ -32,7 +37,14 @@ class LoginPage(BasePage):
         self.do_send_keys(LoginPageLocators.PASSWORD, password)
         self.do_click(LoginPageLocators.SIGNIN_BUTTON)
 
+    """this is used to create a new account"""
 
-a = LoginPage(driver=webdriver.Chrome())
+    def create_account(self, email):
+        self.do_send_keys(LoginPageLocators.EMAIL_FOR_REGESTRY, email)
+        self.do_click(LoginPageLocators.CREATE_ACCOUNT_BUTTON)
+
+
+
+
 
 
