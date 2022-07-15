@@ -30,5 +30,5 @@ RUN poetry config virtualenvs.create false && \
 
 # Copy the source code into the image.
 COPY framework ./framework
-#COPY tests ./tests
+COPY tests ./tests
 COPY pytest.ini .
