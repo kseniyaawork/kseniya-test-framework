@@ -12,7 +12,7 @@ from the `kseniya-test-framework` folder:
 
 ```shell
 poetry shell
-poetry run python -m pytest framework/tests/
+poetry run python -m pytest tests
 ```
 
 ### Via Docker
@@ -20,7 +20,7 @@ poetry run python -m pytest framework/tests/
 To run the tests inside a container using the image [built here](../README.md#docker):
 
 ```shell
-docker run aut:local /bin/bash -c "poetry run python -m pytest framework/tests/"
+docker run aut1607:local /bin/bash -c "poetry run python -m pytest tests"
 ```
 ### Expected successful pytest report
 ```
